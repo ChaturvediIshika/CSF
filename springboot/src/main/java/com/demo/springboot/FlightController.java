@@ -32,10 +32,10 @@ public class FlightController {
     }
 
     @PutMapping("/flights/{name}")
-    public void putFlight(@PathVariable String name,@RequestBody Flight newFlight) {
+    public String putFlight(@PathVariable String name,@RequestBody Flight newFlight) {
         Flight flight = flights.stream().filter(f -> f.getName().equals(name)).findAny().get();
         flights.set(flights.indexOf(flight),newFlight);
-        flights.remove(flight);
+        return name+" updated";
     }
 
 

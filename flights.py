@@ -8,11 +8,11 @@ def call_flights_api():
         "departure": "7:00 pm",
         "arrival": "10:00 pm"
     }
-    response = requests.post("http://localhost:8080/flights", json = flight)
+    response = requests.put("http://localhost:8080/flights/Indigo", json = flight)
     print(response.status_code)
     print(response.text)
 
-call_products_api()
+call_flights_api()
 
 #     product = {
 #         'name': 'Redmi note 12',
