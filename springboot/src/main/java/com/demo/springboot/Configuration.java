@@ -1,5 +1,6 @@
 package com.demo.springboot;
 
+import com.demo.springboot.model.Flight;
 import org.springframework.context.annotation.Bean;
 import java.util.ArrayList;
 
@@ -7,13 +8,19 @@ import java.util.ArrayList;
 public class Configuration {
 
     @Bean
-    public ArrayList<Integer> getNumbers(){
+    public ArrayList<Flight> getFlights(){
         System.out.println("Inside Bean function");
-        ArrayList<Integer> numbers =new ArrayList<>();
-        numbers.add(1);
-        numbers.add(2);
-        numbers.add(3);
-        return numbers;
+        ArrayList<Flight> flights =new ArrayList<>();
+        flights.add(Flight.builder()
+                .departure("12:00 pm")
+                .arrival("6:00 pm")
+                .src("Delhi Airport")
+                .des("Bangalore Airport")
+                .name("Indigo")
+                .build());
+        flights.add(new Flight());
+        flights.add(new Flight());
+        return flights;
     }
 
 }
