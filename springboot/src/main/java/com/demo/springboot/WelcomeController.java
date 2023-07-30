@@ -35,7 +35,7 @@ public class WelcomeController {
 
     @PutMapping
     public String putMapping(){
-        return "this is put mapping";
+        return "this is put mapping api";
     }
 
     @PatchMapping
