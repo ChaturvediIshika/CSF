@@ -2,10 +2,7 @@ package com.demo.springboot;
 
 import com.demo.springboot.model.Flight;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -25,5 +22,12 @@ public class FlightController {
     public Flight addFlight(@RequestBody Flight newFlight){
         flights.add(newFlight);
         return newFlight;
+    }
+
+    @DeleteMapping("/flights/{name}")
+    public String deleteFlight(@PathVariable String name){
+        Flight flight=flights.stream().filter(f->f.getName().equals(name)).findAny().get();
+        flights.remove(flight);
+        return name+" deleted";
     }
 }
