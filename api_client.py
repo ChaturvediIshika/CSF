@@ -16,7 +16,7 @@ def call_flights_api():
             "city": "Bangalore"
         }
     }
-    response = requests.post("http://localhost:8080/flights", json = flight)
+    response = requests.post("http://localhost:3000/flights", json = flight)
     print(response.status_code)
     
     resp_json = json.loads(response.text)
@@ -40,7 +40,7 @@ def call_flights_api():
             "status": "AVAILABLE"
         }
     ]
-    response = requests.post("http://localhost:8080/flights/%s/seats" % flight_id, json=seats)
+    response = requests.post("http://localhost:3000/flights/%s/seats" % flight_id, json=seats)
     print(response.status_code)
     print(response.text)
 
